@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Records" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://classes/records.gd" id="1_cv5t6"]
+
+[resource]
+script = ExtResource("1_cv5t6")
+map = Dictionary[int, int]({
+1: 1,
+2: 3,
+3: 3
+})

@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cn5ybdy5fr4hx"]
+
+[ext_resource type="Script" uid="uid://csckcxcfswpfj" path="res://scenes/main/main.gd" id="1_6q06x"]
+[ext_resource type="Texture2D" uid="uid://yqt1p8hdix3m" path="res://assets/env/MainBG.png" id="1_hyk8p"]
+[ext_resource type="AudioStream" uid="uid://cx7s1jch62duh" path="res://assets/audio/birdsong.wav" id="2_iuonh"]
+[ext_resource type="LabelSettings" uid="uid://dd8msyf6ujgon" path="res://resources/font_96_light.tres" id="3_k2fmo"]
+[ext_resource type="PackedScene" uid="uid://vsthsx0oog6m" path="res://scenes/menu_button/menu_button.tscn" id="4_l3cfh"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6q06x")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hyk8p")
+expand_mode = 3
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_iuonh")
+volume_db = -20.0
+autoplay = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_bottom = 48
+
+[node name="LabelTitle" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Packed Animals"
+label_settings = ExtResource("3_k2fmo")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 48
+
+[node name="MenuButton" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_l3cfh")]
+layout_mode = 2
+level = 1
+
+[node name="MenuButton2" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_l3cfh")]
+layout_mode = 2
+level = 2
+
+[node name="MenuButton3" parent="MarginContainer/HBoxContainer" instance=ExtResource("4_l3cfh")]
+layout_mode = 2
+level = 3

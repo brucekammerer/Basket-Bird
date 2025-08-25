@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://vsthsx0oog6m"]
+
+[ext_resource type="Texture2D" uid="uid://c6cb3lrkdnmi0" path="res://assets/ui/panel_beige.png" id="1_v1lx2"]
+[ext_resource type="Script" uid="uid://ds4jbf2nuxofr" path="res://scenes/menu_button/menu_button.gd" id="2_6t206"]
+[ext_resource type="LabelSettings" uid="uid://cx7r4wem2c14k" path="res://resources/font_32_light.tres" id="3_jwn0h"]
+[ext_resource type="LabelSettings" uid="uid://bj7y8sa86kemj" path="res://resources/font_20_light.tres" id="4_cuwo7"]
+
+[node name="MenuButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(50, 50)
+texture_normal = ExtResource("1_v1lx2")
+script = ExtResource("2_6t206")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LabelLevel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("3_jwn0h")
+horizontal_alignment = 1
+
+[node name="LabelAttempts" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "999"
+label_settings = ExtResource("4_cuwo7")
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://cblk2h1k75tyb"]
+
+[ext_resource type="LabelSettings" uid="uid://cx7r4wem2c14k" path="res://resources/font_32_light.tres" id="1_1i64n"]
+[ext_resource type="Script" uid="uid://j40q7a68871o" path="res://scenes/game_ui/game_ui.gd" id="1_2cwxn"]
+[ext_resource type="LabelSettings" uid="uid://221wg2xk5bj6" path="res://resources/font_72_light.tres" id="2_najyh"]
+[ext_resource type="LabelSettings" uid="uid://d1vh4qak5e50y" path="res://resources/font_48_light.tres" id="3_najyh"]
+[ext_resource type="AudioStream" uid="uid://dr8ma7rnyj4s2" path="res://assets/audio/jazzyfrenchy.mp3" id="5_hk0ve"]
+
+[node name="GameUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2cwxn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="VBoxContainerTop" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LabelLevel" type="Label" parent="MarginContainer/VBoxContainerTop"]
+layout_mode = 2
+text = "Level: 0"
+label_settings = ExtResource("1_1i64n")
+
+[node name="LabelAttempts" type="Label" parent="MarginContainer/VBoxContainerTop"]
+layout_mode = 2
+text = "Attempts: 999"
+label_settings = ExtResource("1_1i64n")
+
+[node name="VBoxContainerMiddle" type="VBoxContainer" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LabelCompleted" type="Label" parent="MarginContainer/VBoxContainerMiddle"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Completed"
+label_settings = ExtResource("2_najyh")
+
+[node name="LabelPressSpace" type="Label" parent="MarginContainer/VBoxContainerMiddle"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "press space to continue"
+label_settings = ExtResource("3_najyh")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_hk0ve")
